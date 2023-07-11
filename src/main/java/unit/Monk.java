@@ -1,7 +1,9 @@
 package unit;
 
-public class Monk extends BaseHero{
-    public Monk(String name, int hp, int mp, int armor, int attack, int luck) {
-        super(name, hp, mp, armor, attack, luck);
+import java.util.Random;
+
+public class Monk extends MagicalCharacter{
+    public Monk(String name) {
+        super(name, new Random().nextInt(1, 10));
     }
 }

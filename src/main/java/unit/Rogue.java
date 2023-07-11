@@ -1,8 +1,10 @@
 package unit;
 
-public class Rogue extends BaseHero{
+import java.util.Random;
 
-    public Rogue(String name, int hp, int mp, int armor, int attack, int luck) {
-        super(name, hp, mp, armor, attack, luck);
+public class Rogue extends InfantryCharacter{
+
+    public Rogue(String name) {
+        super(name, new Random().nextInt(1, 12));
     }
 }

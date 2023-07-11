@@ -1,7 +1,10 @@
 package unit;
 
-public class Sniper extends BaseHero{
-    public Sniper(String name, int hp, int mp, int armor, int attack, int luck) {
-        super(name, hp, mp, armor, attack, luck);
+import java.util.Random;
+
+public class Sniper extends ShooterCharacter {
+    public Sniper(String name) {
+
+        super(name, new Random().nextInt(1, 5));
     }
 }

@@ -1,7 +1,9 @@
 package unit;
 
-public class Witch extends BaseHero{
-    public Witch(String name, int hp, int mp, int armor, int attack, int luck) {
-        super(name, hp, mp, armor, attack, luck);
+import java.util.Random;
+
+public class Witch extends MagicalCharacter{
+    public Witch(String name) {
+        super(name, new Random().nextInt(1, 5));
     }
 }

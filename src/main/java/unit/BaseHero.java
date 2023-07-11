@@ -1,7 +1,6 @@
 package unit;
 
-
- public abstract class BaseHero {
+public abstract class BaseHero {
     protected String name; // имя
     protected int hp; // здоровье
     protected int currentHp; // текущее здоровье
@@ -10,7 +9,8 @@ package unit;
     protected int initiative; // ход
     protected int armor; // защита
     protected int attack; // атака
-    protected int luck; // удача (от величины удачи доп повреждения противнику)
+    protected int luck; // удача (от величины удачи доп повреждения противнику, или доп защита)
+
     public BaseHero(String name, int hp, int mp, int armor, int attack, int luck) {
         this.name = name;
         this.hp = this.currentHp = hp;
@@ -19,4 +19,5 @@ package unit;
         this.attack = attack;
         this.luck = luck;
     }
+
 }

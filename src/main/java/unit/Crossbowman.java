@@ -1,7 +1,10 @@
 package unit;
 
-public class Crossbowman extends BaseHero{
-    public Crossbowman(String name, int hp, int mp, int armor, int attack, int luck) {
-        super(name, hp, mp, armor, attack, luck);
+import java.util.Random;
+
+public class Crossbowman extends ShooterCharacter {
+    public Crossbowman(String name) {
+
+        super(name, new Random().nextInt(1, 8));
     }
 }
