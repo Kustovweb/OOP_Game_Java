@@ -1,6 +1,6 @@
-package unit;
+package units;
 
-public abstract class BaseHero {
+public abstract class BaseHero implements InGameInterface{
     protected String name; // имя
     protected int hp; // здоровье
     protected int currentHp; // текущее здоровье
@@ -18,6 +18,10 @@ public abstract class BaseHero {
         this.armor = armor;
         this.attack = attack;
         this.luck = luck;
+    }
+
+    public String getInfo() {
+        return this.getClass().getName();
     }
 
 }
