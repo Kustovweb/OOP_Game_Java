@@ -1,5 +1,8 @@
 package units;
 
+
+import java.util.ArrayList;
+
 public abstract class BaseHero implements InGameInterface{
     protected String name; // имя
     protected int hp; // здоровье
@@ -11,17 +14,42 @@ public abstract class BaseHero implements InGameInterface{
     protected int attack; // атака
     protected int luck; // удача (от величины удачи доп повреждения противнику, или доп защита)
 
-    public BaseHero(String name, int hp, int mp, int armor, int attack, int luck) {
+    protected Coordinats coordinats;
+
+    protected int numberTeam;
+
+    public BaseHero(String name, int hp, int mp, int armor, int attack, int luck, int x, int y, int nT) {
         this.name = name;
         this.hp = this.currentHp = hp;
         this.mp = this.getCurrentMp = mp;
         this.armor = armor;
         this.attack = attack;
         this.luck = luck;
+        this.coordinats = new Coordinats(x, y);
+        this.numberTeam = nT;
     }
 
+    public int findNearest(ArrayList<BaseHero> enemy) {
+        double minDist = Coordinats.Distance(coordinats.x, enemy.get(0).coordinats.x, coordinats.y, enemy.get(0).coordinats.y);
+        int k = 0;
+
+        for (int i = 1; i < enemy.size(); i++) {
+            double R = Coordinats.Distance(coordinats.x, enemy.get(i).coordinats.x, coordinats.y, enemy.get(i).coordinats.y);
+           if (R < minDist) {
+               minDist = R;
+               k = i;
+           }
+        }
+        System.out.println(getClass().getSimpleName()+" "+name+"- "+enemy.get(k).name+" "+minDist);
+        return k;
+    }
     public String getInfo() {
-        return this.getClass().getName();
+        return this.getClass().getSimpleName() + " " + name + " " + coordinats;
+    }
+
+    @Override
+    public void step(ArrayList<BaseHero> enemy) {
+        System.out.println("Шаг вперед");
     }
 
 }

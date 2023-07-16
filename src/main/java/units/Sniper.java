@@ -1,20 +1,14 @@
 package units;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Sniper extends ShooterCharacter {
-    public Sniper(String name) {
+    public Sniper(String name, int x, int y, int nT) {
 
-        super(name, new Random().nextInt(1, 5));
+        super(name, new Random().nextInt(1, 5), x, y, nT);
     }
 
-    @Override
-    public String getInfo() {
-        return "Sniper";
-    }
 
-    @Override
-    public void step() {
 
-    }
 }

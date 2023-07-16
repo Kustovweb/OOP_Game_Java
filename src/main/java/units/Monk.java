@@ -1,19 +1,13 @@
 package units;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Monk extends MagicalCharacter{
-    public Monk(String name) {
-        super(name, new Random().nextInt(1, 10));
+    public Monk(String name, int x, int y, int nT) {
+        super(name, new Random().nextInt(1, 10), x, y, nT);
     }
 
-    @Override
-    public String getInfo() {
-        return "Monk";
-    }
 
-    @Override
-    public void step() {
 
-    }
 }

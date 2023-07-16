@@ -9,39 +9,34 @@ public class Main {
         return s;
     }
     public static void main(String[] args) {
-        Peasant peasant = new Peasant("Peasant");
-        Crossbowman crossbowman = new Crossbowman("Crossbowman");
-        Monk monk = new Monk(getName());
-        Rogue rogue = new Rogue(getName());
-        Sniper sniper = new Sniper(getName());
-        Spearman spearman = new Spearman(getName());
-        Witch witch = new Witch(getName());
-
         ArrayList<BaseHero> oneTeam = new ArrayList<>();
         ArrayList<BaseHero> twoTeam = new ArrayList<>();
-        fillList(oneTeam);
-        fillList(twoTeam);
+        fillList(oneTeam, 1, 1);
+        fillList(twoTeam, 10, 2);
 
         oneTeam.forEach((BaseHero a) -> System.out.println(a.getInfo()));
         twoTeam.forEach((BaseHero a) -> System.out.println(a.getInfo()));
 
+        oneTeam.forEach(n -> n.step(twoTeam));
+        twoTeam.forEach(n -> n.step(oneTeam));
+
     }
 
-    public static void fillList(ArrayList < BaseHero > list) {
-        for (int i = 0; i < 10; i++) {
+    public static void fillList(ArrayList < BaseHero > list, int k, int nT) {
+        for (int i = 1; i < 10; i++) {
             int cnt = new Random().nextInt(7);
             switch (cnt) {
-                case 1: list.add(new Crossbowman("Crossbowman"));
+                case 1: list.add(new Crossbowman(getName(), k, i, nT));
                     break;
-                case 2: list.add(new Monk("Monk"));
+                case 2: list.add(new Monk(getName(), k, i, nT));
                     break;
-                case 3: list.add(new Rogue("Rogue"));
+                case 3: list.add(new Rogue(getName(), k, i, nT));
                     break;
-                case 4: list.add(new Sniper("Sniper"));
+                case 4: list.add(new Sniper(getName(), k, i, nT));
                     break;
-                case 5: list.add(new Spearman("Spearman"));
+                case 5: list.add(new Spearman(getName(), k, i, nT));
                     break;
-                case 6: list.add(new Witch("Witch"));
+                case 6: list.add(new Witch(getName(), k, i, nT));
                     break;
             }
         }
