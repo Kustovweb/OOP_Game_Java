@@ -14,11 +14,14 @@ public class Main {
         fillList(oneTeam, 1, 1);
         fillList(twoTeam, 10, 2);
 
-        oneTeam.forEach((BaseHero a) -> System.out.println(a.getInfo()));
-        twoTeam.forEach((BaseHero a) -> System.out.println(a.getInfo()));
-
-        oneTeam.forEach(n -> n.step(twoTeam));
-        twoTeam.forEach(n -> n.step(oneTeam));
+        oneTeam.forEach(n -> System.out.println(n.getInfo()));
+        twoTeam.forEach(n -> System.out.println(n.getInfo()));
+        System.out.println("--------");
+        oneTeam.forEach(n -> n.step(oneTeam, twoTeam));
+        twoTeam.forEach(n -> n.step(twoTeam, oneTeam));
+        System.out.println("--------");
+        oneTeam.forEach(n -> System.out.println(n.getInfo()));
+        twoTeam.forEach(n -> System.out.println(n.getInfo()));
 
     }
 

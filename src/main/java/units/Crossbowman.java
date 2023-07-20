@@ -9,8 +9,4 @@ public class Crossbowman extends ShooterCharacter {
         super(name, new Random().nextInt(1, 8), x, y, nT);
     }
 
-    @Override
-    public void step(ArrayList<BaseHero> enemy) {
-
-    }
 }

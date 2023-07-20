@@ -43,13 +43,18 @@ public abstract class BaseHero implements InGameInterface{
         System.out.println(getClass().getSimpleName()+" "+name+"- "+enemy.get(k).name+" "+minDist);
         return k;
     }
-    public String getInfo() {
-        return this.getClass().getSimpleName() + " " + name + " " + coordinats;
-    }
+
+
 
     @Override
-    public void step(ArrayList<BaseHero> enemy) {
+    public String getInfo() {
+//        return this.getClass().getSimpleName() + " " + name + " " + coordinats;
+        return "hp=" + this.hp + " name:" + this.getClass().getSimpleName();
+    }
+    @Override
+    public void step(ArrayList<BaseHero> enemy, ArrayList<BaseHero> team) {
         System.out.println("Шаг вперед");
     }
+
 
 }

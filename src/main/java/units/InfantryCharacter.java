@@ -7,7 +7,11 @@ public abstract class InfantryCharacter extends BaseHero{
         super(name, 30, 0, 7, 7, luck, x, y, nT);
     }
     @Override
-    public void step(ArrayList<BaseHero> enemy) {
+    public void step(ArrayList<BaseHero> enemy, ArrayList<BaseHero> team) {
         int k = findNearest(enemy);
+    }
+    @Override
+    public String getInfo() {
+        return "hp=" + this.hp + "name:" + this.getClass().getSimpleName();
     }
 }
