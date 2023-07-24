@@ -1,5 +1,6 @@
 package units;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class Farmer extends BaseHero{
@@ -8,4 +9,8 @@ public class Farmer extends BaseHero{
     }
 
 
+    @Override
+    public void step(ArrayList<BaseHero> enemy, ArrayList<BaseHero> team) {
+        super.step(enemy, team);
+    }
 }

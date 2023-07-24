@@ -4,6 +4,7 @@ package units;
 import java.util.ArrayList;
 
 public abstract class BaseHero implements InGameInterface{
+
     protected String name; // имя
     protected int hp; // здоровье
     protected int currentHp; // текущее здоровье
@@ -12,21 +13,25 @@ public abstract class BaseHero implements InGameInterface{
     protected int initiative; // ход
     protected int armor; // защита
     protected int attack; // атака
+    protected int[] damage;
     protected int luck; // удача (от величины удачи доп повреждения противнику, или доп защита)
 
     protected Coordinats coordinats;
 
     protected int numberTeam;
+    protected String status;
 
-    public BaseHero(String name, int hp, int mp, int armor, int attack, int luck, int x, int y, int nT) {
+    public BaseHero(String name, int hp, int mp, int armor, int[] damage, int attack, int luck, int x, int y, int nT) {
         this.name = name;
         this.hp = this.currentHp = hp;
         this.mp = this.getCurrentMp = mp;
         this.armor = armor;
         this.attack = attack;
+        this.damage = damage;
         this.luck = luck;
         this.coordinats = new Coordinats(x, y);
         this.numberTeam = nT;
+        this.status = "Stand";
     }
 
     public int findNearest(ArrayList<BaseHero> enemy) {
@@ -43,7 +48,16 @@ public abstract class BaseHero implements InGameInterface{
         System.out.println(getClass().getSimpleName()+" "+name+"- "+enemy.get(k).name+" "+minDist);
         return k;
     }
-
+public void getDamage(float damage) {
+    currentHp -= damage;
+    if (currentHp <= 0) {
+        status = "Die";
+        currentHp = 0;
+    }
+    if (currentHp > hp) {
+        currentHp = hp;
+    }
+}
 
 
     @Override
