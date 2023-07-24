@@ -17,7 +17,7 @@ public abstract class MagicalCharacter extends BaseHero{
                 return (int) ((o1.hp - o1.currentHp) - (o2.hp - o2.currentHp));
             }
         });
-        team.get(0).getDamage(super.attack);
+        team.get(0).getDamage(damage[0]);
     }
     @Override
     public String getInfo() {
