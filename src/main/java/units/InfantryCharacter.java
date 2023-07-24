@@ -1,10 +1,12 @@
 package units;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public abstract class InfantryCharacter extends BaseHero{
-    public InfantryCharacter(String name, int luck, int x, int y, int nT) {
-        super(name, 30, 0, 7, 7, luck, x, y, nT);
+    public InfantryCharacter(String name, int hp, int mp, int armor, int[] damage, int attack, int luck, int x, int y, int nT) {
+        super(name, hp, mp, armor, damage, attack, luck, x, y, nT);
+
     }
     @Override
     public void step(ArrayList<BaseHero> enemy, ArrayList<BaseHero> team) {

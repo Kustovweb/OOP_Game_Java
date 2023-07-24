@@ -5,8 +5,7 @@ import java.util.Random;
 
 public class Main {
     private static String getName() {
-        String s = String.valueOf(Names.values()[new Random().nextInt(Names.values().length)]);
-        return s;
+        return String.valueOf(Names.values()[new Random().nextInt(Names.values().length)]);
     }
     public static void main(String[] args) {
         ArrayList<BaseHero> oneTeam = new ArrayList<>();
@@ -27,20 +26,15 @@ public class Main {
 
     public static void fillList(ArrayList < BaseHero > list, int k, int nT) {
         for (int i = 1; i < 10; i++) {
-            int cnt = new Random().nextInt(7);
+            int cnt = new Random().nextInt(8);
             switch (cnt) {
-                case 1: list.add(new Crossbowman(getName(), k, i, nT));
-                    break;
-                case 2: list.add(new Monk(getName(), k, i, nT));
-                    break;
-                case 3: list.add(new Rogue(getName(), k, i, nT));
-                    break;
-                case 4: list.add(new Sniper(getName(), k, i, nT));
-                    break;
-                case 5: list.add(new Spearman(getName(), k, i, nT));
-                    break;
-                case 6: list.add(new Witch(getName(), k, i, nT));
-                    break;
+                case 1 -> list.add(new Crossbowman(getName(), k, i, nT));
+                case 2 -> list.add(new Monk(getName(), k, i, nT));
+                case 3 -> list.add(new Rogue(getName(), k, i, nT));
+                case 4 -> list.add(new Sniper(getName(), k, i, nT));
+                case 5 -> list.add(new Spearman(getName(), k, i, nT));
+                case 6 -> list.add(new Wizard(getName(), k, i, nT));
+                case 7 -> list.add(new Farmer(getName(), k, i, nT));
             }
         }
     }
