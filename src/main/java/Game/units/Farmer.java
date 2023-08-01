@@ -1,16 +1,17 @@
-package units;
+package Game.units;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Farmer extends BaseHero{
+public class Farmer extends Game.units.BaseHero {
     public Farmer(String name, int x, int y, int nT) {
-        super(name, 10, 0, 0, new int[] {1, 1}, 0, new Random().nextInt(1, 5), x, y, nT);
+        super(name, 10, new int[]{0,0}, 0, 2, x, y, nT, 1);
     }
 
 
     @Override
     public void step(ArrayList<BaseHero> enemy, ArrayList<BaseHero> team) {
-        super.step(enemy, team);
+        if (this.currentHp == 0) return;
+        status ="Stand";
     }
 }

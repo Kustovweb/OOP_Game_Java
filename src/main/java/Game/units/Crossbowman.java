@@ -1,12 +1,13 @@
-package units;
+package Game.units;
 
-import java.util.ArrayList;
+import Game.units.ShooterCharacter;
+
 import java.util.Random;
 
 public class Crossbowman extends ShooterCharacter {
     public Crossbowman(String name, int x, int y, int nT) {
 
-        super(name, 15, 0, 5, new int[]{1, 4}, 6,  new Random().nextInt(1, 8), x, y, nT);
+        super(name, 20, new int[]{3,5}, 5, 2, x, y, nT, 5);
     }
 
 }
