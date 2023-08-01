@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class Farmer extends Game.units.BaseHero {
     public Farmer(String name, int x, int y, int nT) {
-        super(name, 10, new int[]{0,0}, 0, 2, x, y, nT, 1);
+        super(name, 10, new int[]{0,0}, 0, x, y, nT, 7);
     }
 
 

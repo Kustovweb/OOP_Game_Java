@@ -5,8 +5,8 @@ import java.util.Comparator;
 
 public abstract class MagicalCharacter extends Game.units.BaseHero {
     int mana;
-    public MagicalCharacter(String name, int hp, int[] damage, int mana, int attack, int luck, int x, int y, int nT, int initiative) {
-        super(name, hp, damage, attack, luck, x, y, nT, initiative);
+    public MagicalCharacter(String name, int hp, int[] damage, int mana, int attack, int x, int y, int nT, int initiative) {
+        super(name, hp, damage, attack, x, y, nT, initiative);
         this.mana = mana;
     }
 

@@ -5,6 +5,7 @@ import Game.Interface.BaseHeroInterface;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Objects;
 
 public abstract class BaseHero implements BaseHeroInterface {
 
@@ -14,19 +15,17 @@ public abstract class BaseHero implements BaseHeroInterface {
     public int initiative; // ход
     protected int attack; // атака
     protected int[] damage;
-    protected int luck; // удача (от величины удачи доп повреждения противнику, или доп защита)
 
     protected Coordinats coordinats;
 
     protected int numberTeam;
     public String status;
 
-    public BaseHero(String name, int hp, int[] damage, int attack, int luck, int x, int y, int nT, int initiative) {
+    public BaseHero(String name, int hp, int[] damage, int attack, int x, int y, int nT, int initiative) {
         this.name = name;
         this.hp = this.currentHp = hp;
         this.attack = attack;
         this.damage = damage;
-        this.luck = luck;
         this.coordinats = new Game.units.Coordinats(x, y);
         this.numberTeam = nT;
         this.status = "Stand";
@@ -72,10 +71,7 @@ public int getHp() {
         return this.currentHp;
 }
 public boolean isDead() {
-        if (this.status == "Die") {
-            return true;
-        }
-    return false;
+    return Objects.equals(this.status, "Die");
 }
 
     @Override
@@ -83,10 +79,5 @@ public boolean isDead() {
         return String.format(" %s %s %s \u2764: %s \u2661: %s \u2694: %s In: %s  X: %s Y: %s",this.getClass().getSimpleName(),this.name,
                 this.status, this.hp, this.currentHp, Arrays.toString(this.damage) , this.initiative, this.coordinats.x, this.coordinats.y);
     }
-//    @Override
-//    public void step(ArrayList<BaseHero> enemy, ArrayList<BaseHero> team) {
-//        System.out.println("Шаг вперед");
-//    }
-
 
 }

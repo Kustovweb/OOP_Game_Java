@@ -62,8 +62,8 @@ public class Main {
                 case 4 -> team.add(new Sniper(getName(), k, i, nT));
                 case 5 -> team.add(new Spearman(getName(), k, i, nT));
                 case 6 -> team.add(new Wizard(getName(), k, i, nT));
-                case 7 -> team.add(new Farmer(getName(), k, i, nT));
-                default -> team.add(new Monk(getName(), k, i, nT));
+                case 7 -> team.add(new Ballista(getName(), k, i, nT));
+                default -> team.add(new Farmer(getName(), k, i, nT));
             }
         }
         return team;

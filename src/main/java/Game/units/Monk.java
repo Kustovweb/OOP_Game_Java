@@ -4,11 +4,11 @@ import java.util.ArrayList;
 
 public class  Monk extends Game.units.MagicalCharacter {
     public Monk(String name, int x, int y, int nT) {
-        super(name, 15, new int[]{2,3}, 3, 6, 2, x, y, nT, 5);
+        super(name, 15, new int[]{-1,-3}, 2, 10, x, y, nT, 5);
     }
 
     @Override
-    public void step(ArrayList<BaseHero> teamProtivnic, ArrayList<BaseHero> team) {
+    public void step(ArrayList<BaseHero> enemy, ArrayList<BaseHero> team) {
         if(mana <= 0) return;
         if (super.findeDamagePerson(team).hp == super.findeDamagePerson(team).currentHp) return;
 
