@@ -3,31 +3,37 @@ package Game.units;
 import java.util.ArrayList;
 
 public abstract class ShooterCharacter extends Game.units.BaseHero {
-    protected int arrows;
-    protected int range;
-    public ShooterCharacter(String name, int hp, int[] damage, int attack, int luck, int x, int y, int nT, int initiative) {
+    int range;
+    int capacity;
+    public ShooterCharacter(String name, int hp, int[] damage, int range, int capacity, int attack, int luck, int x, int y, int nT, int initiative) {
         super(name, hp, damage, attack, luck, x, y, nT, initiative);
-        this.arrows = 5;
-        this.range = 5;
+        this.range = range;
+        this.capacity = capacity;
     }
-    @Override
-    public void step(ArrayList<Game.units.BaseHero> enemy, ArrayList<Game.units.BaseHero> team) {
-        if (this.hp == 0 || arrows == 0) return;
-        int k = super.findNearest(enemy);
-        enemy.get(k).getDamage(this.attack + this.luck);
 
-        for (Game.units.BaseHero baseHero : team) {
-            if (baseHero.getClass().getSimpleName().equals("Farmer") && baseHero.status.equals("Stand")) {
-                baseHero.status = "Busy";
+    @Override
+    public void step(ArrayList<BaseHero> enemy, ArrayList<BaseHero> team) {
+        if (this.currentHp == 0) return;
+
+        int k = super.findNearest(enemy);
+        enemy.get(k).getDamage((float) (this.damage[1] + this.damage[0]) /2);
+
+        // for (int i = 0; i < team.size(); i++) {
+        for(BaseHero bh: team){
+            if (bh.getClass() == Farmer.class && bh.status.equals("Stand")){
+                //team.get(i).getClass().equals("Farmer") && team.get(i).status.equals("Stand")) {
+                bh.status.equals("Busy");
+                if (this.capacity == 0) this.capacity +=1 ;
+
                 return;
             }
-            ;
 
         }
-        this.arrows -= 1;
+        this.capacity -= 1;
     }
+
     @Override
     public String getInfo() {
-        return "hp=" + this.hp + "name:" + this.getClass().getSimpleName() + " Стрел:" + " " + this.arrows;
+        return String.format("%s \u27B3: %s", super.getInfo(), this.capacity);
     }
 }

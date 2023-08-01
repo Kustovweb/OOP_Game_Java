@@ -52,8 +52,9 @@ public class Main {
 
     public static ArrayList<BaseHero> newTeam(int k, int nT) {
         ArrayList<BaseHero> team = new ArrayList<BaseHero>(10);
-        for (int i = 1; i < 10; i++) {
-            int cnt = new Random().nextInt(8);
+        Random rand = new Random();
+        for (int i = 1; i < 11; i++) {
+        int cnt = rand.nextInt(0, 9);
             switch (cnt) {
                 case 1 -> team.add(new Crossbowman(getName(), k, i, nT));
                 case 2 -> team.add(new Monk(getName(), k, i, nT));
@@ -62,6 +63,7 @@ public class Main {
                 case 5 -> team.add(new Spearman(getName(), k, i, nT));
                 case 6 -> team.add(new Wizard(getName(), k, i, nT));
                 case 7 -> team.add(new Farmer(getName(), k, i, nT));
+                default -> team.add(new Monk(getName(), k, i, nT));
             }
         }
         return team;
